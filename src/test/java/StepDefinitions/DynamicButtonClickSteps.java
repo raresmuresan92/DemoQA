@@ -5,7 +5,7 @@ import io.cucumber.java.en.Given;
 import static org.junit.Assert.assertEquals;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -35,6 +35,7 @@ public class DynamicButtonClickSteps {
 		// Open the buttons page
 		driver.get("https://demoqa.com/buttons");
 		System.out.println("Inside Step - user is on the Buttons Page");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
 	@When("user clicks on the {string} button")
@@ -55,11 +56,11 @@ public class DynamicButtonClickSteps {
         System.out.println("Inside Step - the message " + expectedMessage + " should be displayed");
     }
     
-//    @After
-//    public void tearDown() {
-//        // Close the browser
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
+    @After
+    public void tearDown() {
+        // Close the browser
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }

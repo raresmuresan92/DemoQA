@@ -1,29 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="9.332" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="Test dynamic button click functionality" name="Verify dynamic button click" time="9.268">
-<failure type="org.openqa.selenium.NoSuchElementException" message="Unable to find element with locator By.xpath: //button[text()='Click Me']
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.21.0', revision: '79ed462ef4'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
-Driver info: driver.version: RemoteWebDriver">
-<![CDATA[org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.xpath: //button[text()='Click Me']
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.21.0', revision: '79ed462ef4'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:168)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
-	at StepDefinitions.DynamicButtonClickSteps.userClicksOnTheButton(DynamicButtonClickSteps.java:43)
-	at ✽.user clicks on the 'Click Me' button(file:///D:/gitHub/eclipse/DemoQA/src/test/resources/Features/ButtonClick.feature:11)
-]]>
-</failure>
+<testsuite name="Cucumber" time="3.864" tests="2" skipped="0" failures="0" errors="0">
+<testcase classname="Test dynamic button click functionality" name="Verify dynamic button click" time="1.908">
 <system-out><![CDATA[
 Given browser is open.......................................................passed
 And user is on the buttons page.............................................passed
-When user clicks on the 'Click Me' button...................................failed
-Then the message 'You have done a dynamic click' should be displayed........skipped
+When user clicks on the 'Click Me' button...................................passed
+Then the message 'You have done a dynamic click' should be displayed........passed
+]]></system-out>
+</testcase>
+<testcase classname="Dropdown selection verification" name="User selects a term from a dropdown list and verifies the selection" time="1.888">
+<system-out><![CDATA[
+Given user is on the elements page..........................................passed
+When user selects the 'Text Box' tab........................................passed
+Then the selected term should be 'Text Box' tab.............................passed
 ]]></system-out>
 </testcase>
 </testsuite>
