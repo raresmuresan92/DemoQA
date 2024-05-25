@@ -5,7 +5,7 @@ import io.cucumber.java.en.Given;
 import static org.junit.Assert.assertEquals;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -35,31 +35,38 @@ public class DynamicButtonClickSteps {
 		// Open the buttons page
 		driver.get("https://demoqa.com/buttons");
 		System.out.println("Inside Step - user is on the Buttons Page");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
 	@When("user clicks on the {string} button")
 	public void userClicksOnTheButton(String buttonText) {
 		// Locate the button by its text and click it
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		WebElement button = driver.findElement(By.xpath("//button[text()='" + buttonText + "']"));
 		button.click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		System.out.println("Inside Step - click on the " + buttonText + " button");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
     @Then("the message {string} should be displayed")
     public void theMessageShouldBeDisplayed(String expectedMessage) {
         // Locate the message element
         WebElement messageElement = driver.findElement(By.id("dynamicClickMessage"));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
          
         // Assert the message text
         assertEquals(expectedMessage, messageElement.getText());
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         System.out.println("Inside Step - the message " + expectedMessage + " should be displayed");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
     
-//    @After
-//    public void tearDown() {
-//        // Close the browser
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
+    @After
+    public void tearDown() {
+        // Close the browser
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
