@@ -32,14 +32,18 @@ public class DropdownSelectionSteps {
 
     @When("user selects the 'Text Box' tab")
     public void user_selects_the_text_box_tab() {
+    	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         WebElement textBoxTab = driver.findElement(By.id("item-0")); // Update the locator if necessary
         textBoxTab.click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @Then("the selected term should be 'Text Box' tab")
     public void the_selected_term_should_be_text_box_tab() {
+    	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     	WebElement textBoxHeader = driver.findElement(By.xpath("//h1[contains(text(),'Text Box')]"));
         assertNotNull("Text Box tab was not selected correctly.", textBoxHeader);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.quit();
     }
     
